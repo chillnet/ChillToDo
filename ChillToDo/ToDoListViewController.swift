@@ -32,6 +32,20 @@ class ToDoListViewController: UITableViewController {
         return cell
     }
     
+    //MARK - TableView Delegate Methods
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        
+        //print("You selected cell number: \(indexPath.row) which contains value: \(itemArray[indexPath.row])")
+        
+        if tableView.cellForRow(at: indexPath)?.accessoryType == .checkmark {
+            tableView.cellForRow(at: indexPath)?.accessoryType = .none
+        } else {
+            //adding a checkmark accessory type to the cell
+            tableView.cellForRow(at: indexPath)?.accessoryType = .checkmark
+        }
+        
+        tableView.deselectRow(at: indexPath, animated: true)
+    }
 
 }
 
